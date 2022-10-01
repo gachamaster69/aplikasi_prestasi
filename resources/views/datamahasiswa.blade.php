@@ -28,12 +28,76 @@
             class="btn btn-success mb-2"
             >Tambah +</a
         >
+        <a href="/exportexcel" class="btn btn-info mb-2 ml-2">Export Excel</a>
+        <button
+            type="button"
+            class="btn btn-primary mb-2 ml-2"
+            data-toggle="modal"
+            data-target="#exampleModal"
+        >
+            Import Data
+        </button>
+
+        <!-- Modal -->
+        <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+        >
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">
+                            Modal title
+                        </h5>
+                        <button
+                            type="button"
+                            class="close"
+                            data-dismiss="modal"
+                            aria-label="Close"
+                        >
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form
+                        action="/importexcel"
+                        method="POST"
+                        enctype="multipart/form-data"
+                    >
+                        @csrf
+                    
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="file" name="file" required />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Save changes
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+
         <div class="row">
             {{-- @if ($message = Session::get('success'))
             <div class="alert alert-success" role="alert">
-            {{ $message }}
-            </div>  
+                {{ $message }}
+            </div>
             @endif --}}
+
             <table class="table">
                 <thead>
                     <tr>
@@ -52,12 +116,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @php
-                        $no = 1;
-                    @endphp
-                    @foreach ($data as $row)
+                    @php $no = 1; @endphp @foreach ($data as $index => $row)
                     <tr>
-                        <th scope="row">{{ $no++ }}</th>
+                        <th scope="row">{{ $index + $data->firstItem() }}</th>
                         <td>{{ $row->nim }}</td>
                         <td>{{ $row->nama }}</td>
                         <td>{{ $row->alamat }}</td>
@@ -69,11 +130,19 @@
                         <td>{{ $row->tunggakan }}</td>
                         <td>{{ $row->created_at->format('D M Y') }}</td>
                         <td>
-                            
-                            <a href="/tampilkandata/{{ $row->id }}"  class="btn btn-info">
+                            <a
+                                href="/tampilkandata/{{ $row->id }}"
+                                class="btn btn-info mb-1"
+                            >
                                 Ubah
                             </a>
-                            <a href="#" type="button" class="btn btn-danger delete mb-1" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">
+                            <a
+                                href="#"
+                                type="button"
+                                class="btn btn-danger delete"
+                                data-id="{{ $row->id }}"
+                                data-nama="{{ $row->nama }}"
+                            >
                                 Hapus
                             </a>
                         </td>
@@ -81,6 +150,7 @@
                     @endforeach
                 </tbody>
             </table>
+            {{ $data->links() }}
         </div>
     </div>
 </div>
@@ -101,28 +171,28 @@
     crossorigin="anonymous"
 ></script>
 <script>
-    $('.delete').click( function(){
-        var mahasiswaid = $(this).attr('data-id');
-        var mahasiswanama = $(this).attr('data-nama');
-swal({
-  title: "Anda Yakin?",
-  text: "Akan menghapus data mahasiswa dengan nama "+mahasiswanama+" ",
-  icon: "warning",
-  buttons: true,
-  dangerMode: true,
-})
-.then((willDelete) => {
-  if (willDelete) {
-    window.location = "/deletedata/"+mahasiswaid+""
-    swal("Data berhasil di hapus", {
-      icon: "success",
+    $(".delete").click(function () {
+        var mahasiswaid = $(this).attr("data-id");
+        var mahasiswanama = $(this).attr("data-nama");
+        swal({
+            title: "Anda Yakin?",
+            text:
+                "Akan menghapus data mahasiswa dengan nama " +
+                mahasiswanama +
+                " ",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                window.location = "/deletedata/" + mahasiswaid + "";
+                swal("Data berhasil di hapus", {
+                    icon: "success",
+                });
+            } else {
+                swal("Data tidak jadi dihapus");
+            }
+        });
     });
-  } else {
-    swal("Data tidak jadi dihapus");
-  }
-});
-    });
-
-    
 </script>
 @endsection

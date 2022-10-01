@@ -33,3 +33,6 @@ Route::get('/register',[LoginController::class, 'register'])->name('register');
 Route::post('/registeruser',[LoginController::class, 'registeruser'])->name('registeruser');
 
 Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
+
+Route::get('/exportexcel',[DataMahasiswaController::class, 'exportexcel'])->name('exportexcel');
+Route::post('/importexcel',[DataMahasiswaController::class, 'importexcel'])->name('importexcel');

@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\DataMahasiswa;
 use Illuminate\Http\Request;
+use App\Models\DataMahasiswa;
+use App\Exports\MahasiswaExport;
+use App\Imports\MahasiswaImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DataMahasiswaController extends Controller
 {
     public function datamahasiswa() {
-        $data = DataMahasiswa::all();
+        $data = DataMahasiswa::paginate(5);
         
         return view('datamahasiswa',compact('data'));
     }
@@ -39,5 +42,19 @@ class DataMahasiswaController extends Controller
         $data = DataMahasiswa::find($id);
         $data->delete();
         return redirect()->route('datamahasiswa')->with('success','Data berhasil di hapus');
+    }
+
+    public function exportexcel() {
+        return Excel::download(new MahasiswaExport, 'datamahasiswa.xlsx');
+    }
+
+    public function importexcel(Request $request) {
+        $data = $request->file('file');
+
+        $namafile = $data->getClientOriginalName();
+        $data->move('MahasiswaData', $namafile);
+
+        Excel::import(new MahasiswaImport, \public_path('/MahasiswaData/'.$namafile));
+        return \redirect()->back();
     }
 }
