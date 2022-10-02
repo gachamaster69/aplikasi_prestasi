@@ -21,9 +21,9 @@ class CreateDataMahasiswaTable extends Migration
             $table->decimal('ipk');
             $table->integer('pendapatan');
             $table->string('daftar_prestasi');
-            $table->integer('jumlah_prestasi_nasional');
-            $table->integer('jumlah_prestasi_internasional');
-            $table->integer('tunggakan');
+            $table->integer('jumlah_prestasi_nasional')->nullable();
+            $table->integer('jumlah_prestasi_internasional')->nullable();
+            $table->integer('tunggakan')->nullable();
             $table->timestamps();
         });
     }
