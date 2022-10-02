@@ -118,7 +118,7 @@
                         <th scope="col">No</th>
                         <th scope="col">nim</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Alamat</th>
+                        <th scope="col">Jurusan</th>
                         <th scope="col">IPK
                         </th>
                         <th scope="col">Penghasilan Ortu</th>

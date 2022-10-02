@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
-                                        >Alamat</label
+                                        >Jurusan</label
                                     >
                                     <input
                                         type="text"
@@ -64,7 +64,7 @@
                                         class="form-control"
                                         id="exampleInputEmail1"
                                         aria-describedby="emailHelp"
-                                        placeholder="Masukkan Alamat"
+                                        placeholder="Masukkan Jurusan"
                                     />
                                 </div>
                                 <div class="mb-3">
