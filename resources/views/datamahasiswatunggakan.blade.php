@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Data Mahasiswa</h1>
+                    <h1 class="m-0">Mahasiswa Tunggakan Terbanyak</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
@@ -22,88 +22,10 @@
     </div>
 
     <div class="container">
-        <a
-            href="/tambahdatamahasiswa"
-            type="button"
-            class="btn btn-success mb-2"
-            >Tambah +</a
-        >
-        <a href="/exportexcel" class="btn btn-info mb-2 ml-2">Export Excel</a>
-        <button
-            type="button"
-            class="btn btn-primary mb-2 ml-2"
-            data-toggle="modal"
-            data-target="#exampleModal"
-        >
-            Import Data
-        </button>
-
-        <button type="button" class="btn btn-primary ml-2 mb-2" data-toggle="modal" data-target=".bd-example-modal-sm">Filter</button>
-
-        <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('ipk')</button>
-        <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('pendapatan')</button>
-        <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('jumlah_prestasi_nasional')</button>
-        <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('jumlah_prestasi_internasional')</button>
-        <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('tunggakan')</button>
+       
+        <a href="/exportexceltunggakan" class="btn btn-info mb-2 ml-2">Export Excel</a>
+        
     </div>
-  </div>
-</div>
-
-        <!-- Modal -->
-        <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            role="dialog"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-        >
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">
-                            Modal title
-                        </h5>
-                        <button
-                            type="button"
-                            class="close"
-                            data-dismiss="modal"
-                            aria-label="Close"
-                        >
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <form
-                        action="/importexcel"
-                        method="POST"
-                        enctype="multipart/form-data"
-                    >
-                        @csrf
-                    
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <input type="file" name="file" required />
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button
-                            type="button"
-                            class="btn btn-secondary"
-                            data-dismiss="modal"
-                        >
-                            Close
-                        </button>
-                        <button type="submit" class="btn btn-primary">
-                            Save changes
-                        </button>
-                    </div>
-                </div>
-                </form>
-            </div>
-        </div>
 
         <div class="row">
             {{-- @if ($message = Session::get('success'))
