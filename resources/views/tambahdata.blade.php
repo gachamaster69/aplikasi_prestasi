@@ -60,7 +60,7 @@
                                     >
                                     <input
                                         type="text"
-                                        name="alamat"
+                                        name="jurusan"
                                         class="form-control"
                                         id="exampleInputEmail1"
                                         aria-describedby="emailHelp"
@@ -141,6 +141,19 @@
                                         id="exampleInputEmail1"
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Tunggakan"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1"
+                                        >Organisasi</label
+                                    >
+                                    <input
+                                        type="text"
+                                        name="organisasi"
+                                        class="form-control"
+                                        id="exampleInputEmail1"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Masukkan Organisasi"
                                     />
                                 </div>
 

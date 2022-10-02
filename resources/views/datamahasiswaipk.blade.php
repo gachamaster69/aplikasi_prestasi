@@ -40,7 +40,7 @@
                         <th scope="col">No</th>
                         <th scope="col">nim</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Alamat</th>
+                        <th scope="col">Jurusan</th>
                         <th scope="col">IPK
                         </th>
                         <th scope="col">Penghasilan Ortu</th>
@@ -48,6 +48,7 @@
                         <th scope="col">Jumlah Prestasi Nasional</th>
                         <th scope="col">Jumlah Prestasi Internasional</th>
                         <th scope="col">Tunggakan</th>
+                        <th scope="col">Organisasi</th>
                         <th scope="col">Dibuat</th>
                         <th scope="col">Aksi</th>
                     </tr>
@@ -58,13 +59,14 @@
                         <th scope="row">{{ $index + $data->firstItem() }}</th>
                         <td>{{ $row->nim }}</td>
                         <td>{{ $row->nama }}</td>
-                        <td>{{ $row->alamat }}</td>
+                        <td>{{ $row->jurusan }}</td>
                         <td>{{ $row->ipk }}</td>
                         <td>{{ number_format($row->pendapatan) }}</td>
                         <td>{{ $row->daftar_prestasi }}</td>
                         <td>{{ $row->jumlah_prestasi_nasional }}</td>
                         <td>{{ $row->jumlah_prestasi_internasional }}</td>
                         <td>{{ number_format($row->tunggakan) }}</td>
+                        <td>{{ $row->organisasi }}</td>
                         <td>{{ $row->created_at->format('D M Y') }}</td>
                         <td>
                             <a

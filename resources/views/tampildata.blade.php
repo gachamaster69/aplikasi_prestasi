@@ -62,12 +62,12 @@
                                     >
                                     <input
                                         type="text"
-                                        name="alamat"
+                                        name="jurusan"
                                         class="form-control"
                                         id="exampleInputEmail1"
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Jurusan"
-                                        value="{{ $data->alamat }}"
+                                        value="{{ $data->jurusan }}"
                                     />
                                 </div>
                                 <div class="mb-3">
@@ -150,6 +150,20 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Tunggakan"
                                         value="{{ $data->tunggakan }}"
+                                    />
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1"
+                                        >Organisasi</label
+                                    >
+                                    <input
+                                        type="text"
+                                        name="organisasi"
+                                        class="form-control"
+                                        id="exampleInputEmail1"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Masukkan Organisasi"
+                                        value="{{ $data->organisasi }}"
                                     />
                                 </div>
 

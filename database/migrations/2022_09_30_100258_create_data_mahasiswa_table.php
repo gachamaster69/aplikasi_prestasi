@@ -17,13 +17,14 @@ class CreateDataMahasiswaTable extends Migration
             $table->id();
             $table->string('nim');
             $table->string('nama');
-            $table->string('alamat');
+            $table->string('jurusan');
             $table->decimal('ipk');
             $table->integer('pendapatan');
             $table->string('daftar_prestasi');
             $table->integer('jumlah_prestasi_nasional')->nullable();
             $table->integer('jumlah_prestasi_internasional')->nullable();
             $table->integer('tunggakan')->nullable();
+            $table->string('organisasi')->nullable();
             $table->timestamps();
         });
     }
