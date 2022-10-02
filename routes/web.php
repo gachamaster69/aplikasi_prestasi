@@ -24,10 +24,10 @@ Route::group(['middleware' => ['auth','hakakses:superadmin']], function(){
     
     Route::get('/superadmindashboard',[DataUserController::class, 'superadmindashboard'])->name('superadmindashboard');
     Route::post('/insertuser',[DataUserController::class, 'insertuser'])->name('insertuser');
-    Route::post('/insertdata',[DataMahasiswaController::class, 'insertdata'])->name('insertdata');
+    
 });
 
-
+Route::post('/insertdata',[DataMahasiswaController::class, 'insertdata'])->name('insertdata');
 Route::get('/welcome',[DataMahasiswaController::class, 'welcome'])->name('welcome');
 Route::get('/datamahasiswa',[DataMahasiswaController::class, 'datamahasiswa'])->name('datamahasiswa');
 
