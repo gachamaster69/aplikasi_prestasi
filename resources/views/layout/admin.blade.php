@@ -134,6 +134,16 @@
  
         </ul>
         <li class="nav-item">
+            <a href="/superadmindashboard" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Super Admin
+               
+              </p>
+            </a>
+            
+          </li>
+        <li class="nav-item">
             <a href="/logout" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>

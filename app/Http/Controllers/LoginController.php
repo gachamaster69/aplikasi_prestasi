@@ -15,7 +15,7 @@ class LoginController extends Controller
 
     public function loginuser(Request $request) {
         if (Auth::attempt($request->only('email','password'))) {
-            return redirect('/datamahasiswa');
+            return redirect('/welcome');
         }
         return redirect('login');
     }
