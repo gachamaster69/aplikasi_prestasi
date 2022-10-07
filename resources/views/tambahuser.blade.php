@@ -40,6 +40,9 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Nama"
                                     />
+                                    @error('name')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
@@ -53,6 +56,9 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Email"
                                     />
+                                    @error('email')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
                                 
                                 
@@ -68,6 +74,9 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Password"
                                     />
+                                    @error('password')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
 
                                 <button type="submit" class="btn btn-primary">

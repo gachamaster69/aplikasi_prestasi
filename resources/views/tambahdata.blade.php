@@ -40,6 +40,9 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Nama"
                                     />
+                                    @error('nim')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
@@ -53,6 +56,9 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Nama"
                                     />
+                                    @error('nama')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
@@ -66,6 +72,9 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Jurusan"
                                     />
+                                    @error('jurusan')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1">IPK</label>
@@ -77,6 +86,9 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan IPK"
                                     />
+                                    @error('ipk')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
@@ -90,6 +102,9 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Pendapatan Orang Tua"
                                     />
+                                    @error('pendapatan')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
@@ -103,6 +118,9 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Prestasi"
                                     />
+                                    @error('daftar_prestasi')
+    <div class="alert alert-danger">{{ $message }}</div>
+@enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"

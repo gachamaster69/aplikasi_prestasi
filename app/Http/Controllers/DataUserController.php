@@ -24,6 +24,11 @@ class DataUserController extends Controller
     }
 
     public function insertuser(Request $request) {
+        $this->validate($request, [
+        'name' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+    ]);
         User::create([
             'name' => $request->name,
             'email' => $request->email,

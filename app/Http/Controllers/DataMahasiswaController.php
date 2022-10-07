@@ -69,6 +69,13 @@ class DataMahasiswaController extends Controller
     }
 
     public function insertdata(Request $request) {
+        $this->validate($request, [
+        'nim' => 'required',
+        'nama' => 'required',
+        'ipk' => 'required',
+        'pendapatan' => 'required',
+        'jurusan' => 'required',
+    ]);
         
         DataMahasiswa::create($request->all());
         return redirect()->route('datamahasiswa')->with('success','Data berhasil di tambahkan');

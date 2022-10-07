@@ -20,7 +20,7 @@ class CreateDataMahasiswaTable extends Migration
             $table->string('jurusan');
             $table->decimal('ipk');
             $table->integer('pendapatan');
-            $table->string('daftar_prestasi');
+            $table->string('daftar_prestasi')->nullable();
             $table->integer('jumlah_prestasi_nasional')->nullable();
             $table->integer('jumlah_prestasi_internasional')->nullable();
             $table->integer('tunggakan')->nullable();
