@@ -34,7 +34,7 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama</th>
-                            <th scope="col">Jurusan</th>
+                            <th scope="col">program_studi</th>
                             <th scope="col">IPK</th>
                             <th scope="col">Penghasilan Ortu</th>
                             <th scope="col">Daftar Prestasi</th>
@@ -49,7 +49,7 @@
                         <tr>
                             <th scope="row">{{ $row->id }}</th>
                             <td>{{ $row->nama }}</td>
-                            <td>{{ $row->Jurusan }}</td>
+                            <td>{{ $row->program_studi }}</td>
                             <td>{{ $row->ipk }}</td>
                             <td>{{ $row->pendapatan }}</td>
                             <td>{{ $row->daftar_prestasi }}</td>

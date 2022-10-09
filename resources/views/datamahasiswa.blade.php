@@ -43,7 +43,7 @@
         <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
-      <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('ipk')</button>
+        <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('ipk')</button>
         <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('pendapatan')</button>
         <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('jumlah_prestasi_nasional')</button>
         <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4" >@sortablelink('jumlah_prestasi_internasional')</button>
@@ -118,7 +118,7 @@
                         <th scope="col">No</th>
                         <th scope="col">nim</th>
                         <th scope="col">Nama</th>
-                        <th scope="col">Jurusan</th>
+                        <th scope="col">Program Studi</th>
                         <th scope="col">IPK
                         </th>
                         <th scope="col">Penghasilan Ortu</th>
@@ -137,7 +137,7 @@
                         <th scope="row">{{ $index + $data->firstItem() }}</th>
                         <td>{{ $row->nim }}</td>
                         <td>{{ $row->nama }}</td>
-                        <td>{{ $row->jurusan }}</td>
+                        <td>{{ $row->program_studi }}</td>
                         <td>{{ $row->ipk }}</td>
                         <td>{{ number_format($row->pendapatan) }}</td>
                         <td>{{ $row->daftar_prestasi }}</td>

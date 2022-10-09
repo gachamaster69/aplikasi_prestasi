@@ -17,7 +17,7 @@ class DataMahasiswa extends Seeder
         DB::table('data_mahasiswa')->insert([
             'nim' => '1806045',
             'nama' => 'Wulan',
-            'jurusan' => 'S1 Manajemen',
+            'program_studi' => 'Manajemen S1',
             'ipk' => '3.9',
             'pendapatan' => '3000000',
             'daftar_prestasi' => 'Juara 2 Silat, Juara 4 Bahasa Inggris, Juara 3 renang',

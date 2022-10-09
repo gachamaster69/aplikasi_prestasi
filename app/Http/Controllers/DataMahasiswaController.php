@@ -74,7 +74,7 @@ class DataMahasiswaController extends Controller
         'nama' => 'required',
         'ipk' => 'required',
         'pendapatan' => 'required',
-        'jurusan' => 'required',
+        'program_studi' => 'required',
     ]);
         
         DataMahasiswa::create($request->all());

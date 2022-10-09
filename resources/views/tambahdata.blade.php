@@ -29,9 +29,7 @@
                             <form action="/insertdata" method="POST">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1"
-                                        >NIM</label
-                                    >
+                                    <label for="exampleInputEmail1">NIM</label>
                                     <input
                                         type="text"
                                         name="nim"
@@ -41,8 +39,10 @@
                                         placeholder="Masukkan Nama"
                                     />
                                     @error('nim')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
@@ -57,24 +57,40 @@
                                         placeholder="Masukkan Nama"
                                     />
                                     @error('nama')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
-                                        >Jurusan</label
+                                        >Program Studi</label
                                     >
-                                    <input
-                                        type="text"
-                                        name="jurusan"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Masukkan Jurusan"
-                                    />
-                                    @error('jurusan')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+                                    <select
+                                        class="custom-select"
+                                        name="program_studi"
+                                    >
+                                        <option selected>
+                                            Akuntansi D3
+                                        </option>
+                                        <option value="Akuntansi S1">
+                                            Akuntansi S1
+                                        </option>
+                                        <option value="Bisnis Digital S1">
+                                            Bisnis Digital S1
+                                        </option>
+                                        <option value="Manajemen S1">
+                                            Manajemen S1
+                                        </option>
+                                        <option value="Pariwisata S1">
+                                            Pariwisata S1
+                                        </option>
+                                    </select>
+                                    @error('program_studi')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1">IPK</label>
@@ -87,8 +103,10 @@
                                         placeholder="Masukkan IPK"
                                     />
                                     @error('ipk')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
@@ -103,8 +121,10 @@
                                         placeholder="Masukkan Pendapatan Orang Tua"
                                     />
                                     @error('pendapatan')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
@@ -119,8 +139,10 @@
                                         placeholder="Masukkan Prestasi"
                                     />
                                     @error('daftar_prestasi')
-    <div class="alert alert-danger">{{ $message }}</div>
-@enderror
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"

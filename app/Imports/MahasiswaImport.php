@@ -17,7 +17,7 @@ class MahasiswaImport implements ToModel
         return new DataMahasiswa([
             'nim' => $row[1],
             'nama' => $row[2],
-            'jurusan' => $row[3],
+            'program_studi' => $row[3],
             'ipk' => $row[4],
             'pendapatan' => $row[5],
             'daftar_prestasi' => $row[6],
