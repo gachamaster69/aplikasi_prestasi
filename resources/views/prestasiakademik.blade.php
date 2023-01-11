@@ -5,13 +5,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Data Mahasiswa</h1>
+                        <h1 class="m-0">Data Prestasi Akademik</h1>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">Data Mahasiswa</li>
+                            <li class="breadcrumb-item active">Data Prestasi</li>
                         </ol>
                     </div>
                     <!-- /.col -->
@@ -21,22 +21,17 @@
             <!-- /.container-fluid -->
         </div>
 
-        <div class="container">
-            <a href="/tambahdatamahasiswa" type="button" class="btn btn-success mb-2">Tambah +</a>
-            <a href="/exportexcel" class="btn btn-info mb-2 ml-2">Export Excel</a>
-            <button type="button" class="btn btn-primary mb-2 ml-2" data-toggle="modal" data-target="#exampleModal">
-                Import Data
-            </button>
+        {{-- <div class="container bg-light mb-3">
+            <form class="form-inline" action="/prestasiakademik" method="GET">
+                <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div> --}}
 
-            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-sm">
-                    <div class="modal-content">
-                        <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4">@sortablelink('nim')</button>
-                        <button type="button" class="btn btn-primary btn-sm mb-2 mt-2 mr-4 ml-4">@sortablelink('nama')</button>
-                    </div>
-                </div>
-            </div>
+        <div class="container">
+
+
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -72,14 +67,6 @@
                 </div>
             </div>
 
-            {{-- <div class="row bg-light float-right">
-                <form class="form-inline" action="/datamahasiswa" method="GET">
-                    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div> --}}
-
             <div class="row">
                 {{-- @if ($message = Session::get('success'))
             <div class="alert alert-success" role="alert">
@@ -91,10 +78,13 @@
                     <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">nim</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Program Studi</th>
-                            <th scope="col">Angkatan</th>
+                            <th scope="col">NPM</th>
+                            <th scope="col">Prestasi</th>
+                            <th scope="col">Jenis Prestasi</th>
+                            <th scope="col">Skala</th>
+                            <th scope="col">Tanggal</th>
+                            <th scope="col">Penyelenggara</th>
+                            <th scope="col">Berkas</th>
                             <th scope="col">Dibuat</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -103,20 +93,20 @@
                         @php $no = 1; @endphp @foreach ($data as $row)
                             <tr>
                                 <th scope="row">{{ $no++ }}</th>
-                                <td>{{ $row->nim }}</td>
-                                <td>{{ $row->nama }}</td>
-                                <td>{{ $row->program_studi }}</td>
-                                <td>{{ $row->angkatan }}</td>
+                                <td>{{ $row->mahasiswa_id }}</td>
+                                <td>{{ $row->prestasi }}</td>
+                                <td>{{ $row->jenis_prestasi }}</td>
+                                <td>{{ $row->skala }}</td>
+                                <td>{{ $row->tanggal }}</td>
+                                <td>{{ $row->penyelenggara }}</td>
+                                <td><a href="{{ asset('berkasprestasi/' . $row->berkas) }}">Lihat Berkas</a></td>
                                 <td>{{ $row->created_at->format('D M Y') }}</td>
                                 <td>
-                                    <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info mb-1">
+                                    {{-- <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info mb-1">
                                         Ubah
-                                    </a>
-                                    <a href="/dataprestasi/{{ $row->nim }}" class="btn btn-info mb-1">
-                                        Prestasi
-                                    </a>
+                                    </a> --}}
                                     <a href="#" type="button" class="btn btn-danger delete mb-1"
-                                        data-id="{{ $row->id }}" data-nama="{{ $row->nama }}">
+                                        data-id="{{ $row->id }}" data-nama="{{ $row->prestasi }}">
                                         Hapus
                                     </a>
                                 </td>
@@ -130,7 +120,6 @@
     <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js" defer></script>
     <script src="js/jquery.min.js" type="text/javascript"></script>
 <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
@@ -148,24 +137,24 @@
     </script>
     <script>
         $(".delete").click(function() {
-            var mahasiswaid = $(this).attr("data-id");
-            var mahasiswanama = $(this).attr("data-nama");
+            var prestasiid = $(this).attr("data-id");
+            var prestasinama = $(this).attr("data-nama");
             swal({
                 title: "Anda Yakin?",
-                text: "Akan menghapus data mahasiswa dengan nama " +
-                    mahasiswanama +
+                text: "Akan menghapus prestasi dengan nama " +
+                    prestasinama +
                     " ",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
             }).then((willDelete) => {
                 if (willDelete) {
-                    window.location = "/deletedata/" + mahasiswaid + "";
-                    swal("Data berhasil di hapus", {
+                    window.location = "/deleteprestasiakademik/" + prestasiid + "";
+                    swal("Prestasi berhasil di hapus", {
                         icon: "success",
                     });
                 } else {
-                    swal("Data tidak jadi dihapus");
+                    swal("Prestasi tidak jadi dihapus");
                 }
             });
         });

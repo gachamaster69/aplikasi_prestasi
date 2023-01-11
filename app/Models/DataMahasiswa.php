@@ -13,5 +13,10 @@ class DataMahasiswa extends Model
     protected $table = 'data_mahasiswa';
     protected $guarded = [];
     protected $dates = ['created_at'];
-    public $sortable = ['nim','ipk','pendapatan','jumlah_prestasi_nasional','jumlah_prestasi_internasional','tunggakan'];
+    public $sortable = ['nim','nama'];
+
+    public function prestasi ()
+    {
+        return $this->hasMany(PrestasiMahasiswa::class);
+    }
 }

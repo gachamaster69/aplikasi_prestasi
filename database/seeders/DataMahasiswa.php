@@ -18,13 +18,7 @@ class DataMahasiswa extends Seeder
             'nim' => '1806045',
             'nama' => 'Wulan',
             'program_studi' => 'Manajemen S1',
-            'ipk' => '3.9',
-            'pendapatan' => '3000000',
-            'daftar_prestasi' => 'Juara 2 Silat, Juara 4 Bahasa Inggris, Juara 3 renang',
-            'jumlah_prestasi_nasional' => '1',
-            'jumlah_prestasi_internasional' => '2',
-            'tunggakan' => '900000',
-            'organisasi' => 'BEM'
+            'angkatan' => '2018'
         ]);
 
     }

@@ -90,99 +90,17 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1">IPK</label>
-                                    <input
-                                        type="text"
-                                        name="ipk"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Masukkan IPK"
-                                        value="{{ $data->ipk }}"
-                                    />
-                                </div>
-                                <div class="mb-3">
                                     <label for="exampleInputEmail1"
-                                        >Pendapatan Orang Tua</label
-                                    >
-                                    <input
-                                        type="number"
-                                        name="pendapatan"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Masukkan Pendapatan Orang Tua"
-                                        value="{{ $data->pendapatan }}"
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1"
-                                        >Daftar Prestasi</label
+                                        >Angkatan</label
                                     >
                                     <input
                                         type="text"
-                                        name="daftar_prestasi"
+                                        name="angkatan"
                                         class="form-control"
                                         id="exampleInputEmail1"
                                         aria-describedby="emailHelp"
-                                        placeholder="Masukkan Prestasi"
-                                        value="{{ $data->daftar_prestasi }}"
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1"
-                                        >Jumlah Prestasi Nasional</label
-                                    >
-                                    <input
-                                        type="number"
-                                        name="jumlah_prestasi_nasional"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Masukkan Jumlah Prestasi Nasional"
-                                        value="{{ $data->jumlah_prestasi_nasional }}"
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1"
-                                        >Jumlah Prestasi Internasional</label
-                                    >
-                                    <input
-                                        type="number"
-                                        name="jumlah_prestasi_internasional"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Masukkan Jumlah Prestasi Internasional"
-                                        value="{{ $data->jumlah_prestasi_internasional }}"
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1"
-                                        >Tunggakan</label
-                                    >
-                                    <input
-                                        type="number"
-                                        name="tunggakan"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Masukkan Tunggakan"
-                                        value="{{ $data->tunggakan }}"
-                                    />
-                                </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputEmail1"
-                                        >Organisasi</label
-                                    >
-                                    <input
-                                        type="text"
-                                        name="organisasi"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Masukkan Organisasi"
-                                        value="{{ $data->organisasi }}"
+                                        placeholder="Masukkan Angkatan"
+                                        value="{{ $data->angkatan }}"
                                     />
                                 </div>
 

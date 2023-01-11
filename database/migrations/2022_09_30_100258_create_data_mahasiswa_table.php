@@ -18,13 +18,7 @@ class CreateDataMahasiswaTable extends Migration
             $table->string('nim');
             $table->string('nama');
             $table->enum('program_studi',['Akuntansi D3','Akuntansi S1','Bisnis Digital S1','Manajemen S1','Pariwisata S1']);
-            $table->decimal('ipk');
-            $table->integer('pendapatan');
-            $table->string('daftar_prestasi')->nullable();
-            $table->integer('jumlah_prestasi_nasional')->nullable();
-            $table->integer('jumlah_prestasi_internasional')->nullable();
-            $table->integer('tunggakan')->nullable();
-            $table->string('organisasi')->nullable();
+            $table->string('angkatan');
             $table->timestamps();
         });
     }

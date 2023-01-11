@@ -3,6 +3,7 @@
 use App\Http\Controllers\DataMahasiswaController;
 use App\Http\Controllers\DataUserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PrestasiMahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,31 +22,40 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth','hakakses:superadmin']], function(){
-    
+
     Route::get('/superadmindashboard',[DataUserController::class, 'superadmindashboard'])->name('superadmindashboard');
     Route::post('/insertuser',[DataUserController::class, 'insertuser'])->name('insertuser');
-    
+
 });
 
 Route::post('/insertdata',[DataMahasiswaController::class, 'insertdata'])->name('insertdata');
-Route::get('/welcome',[DataMahasiswaController::class, 'welcome'])->name('welcome');
-Route::get('/datamahasiswa',[DataMahasiswaController::class, 'datamahasiswa'])->name('datamahasiswa');
+Route::post('/insertprestasi',[PrestasiMahasiswaController::class, 'insertprestasi'])->name('insertprestasi');
 
-Route::get('/datamahasiswaipk',[DataMahasiswaController::class, 'datamahasiswaipk'])->name('datamahasiswaipk');
-Route::get('/datamahasiswapendapatan',[DataMahasiswaController::class, 'datamahasiswapendapatan'])->name('datamahasiswapendapatan');
-Route::get('/datamahasiswanasional',[DataMahasiswaController::class, 'datamahasiswanasional'])->name('datamahasiswanasional');
-Route::get('/datamahasiswainternasional',[DataMahasiswaController::class, 'datamahasiswainternasional'])->name('datamahasiswainternasional');
-Route::get('/datamahasiswatunggakan',[DataMahasiswaController::class, 'datamahasiswatunggakan'])->name('datamahasiswatunggakan');
+Route::get('/welcome',[DataMahasiswaController::class, 'welcome'])->name('welcome');
+
+Route::get('/datamahasiswa',[DataMahasiswaController::class, 'datamahasiswa'])->name('datamahasiswa');
+Route::get('/dataprestasi/{id}',[PrestasiMahasiswaController::class, 'dataprestasi'])->name('dataprestasi');
+
+Route::get('/prestasiakademik',[PrestasiMahasiswaController::class, 'prestasiakademik'])->name('prestasiakademik');
+Route::get('/prestasinonakademik',[PrestasiMahasiswaController::class, 'prestasinonakademik'])->name('prestasinonakademik');
 
 Route::get('/tambahdatamahasiswa',[DataMahasiswaController::class, 'tambahdatamahasiswa'])->name('tambahdatamahasiswa');
+Route::get('/tambahprestasi/{id}',[PrestasiMahasiswaController::class, 'tambahprestasi'])->name('tambahprestasi');
 Route::get('/tambahdatauser',[DataUserController::class, 'tambahdatauser'])->name('tambahdatauser');
 
 Route::get('/tampilkandata/{id}',[DataMahasiswaController::class, 'tampilkandata'])->name('tampilkandata');
 Route::post('/updatedata/{id}',[DataMahasiswaController::class, 'updatedata'])->name('updatedata');
 
+Route::get('/tampilkanprestasi/{id}',[PrestasiMahasiswaController::class, 'tampilkanprestasi'])->name('tampilkanprestasi');
+Route::post('/updateprestasi/{id}',[PrestasiMahasiswaController::class, 'updateprestasi'])->name('updateprestasi');
+
 Route::get('/tampilkandatauser/{id}',[DataUserController::class, 'tampilkandatauser'])->name('tampilkandatauser');
 Route::post('/updatedatauser/{id}',[DataUserController::class, 'updatedatauser'])->name('updatedatauser');
+
 Route::get('/deletedata/{id}',[DataMahasiswaController::class, 'deletedata'])->name('deletedata');
+Route::get('/deleteprestasi/{id}',[PrestasiMahasiswaController::class, 'deleteprestasi'])->name('deleteprestasi');
+Route::get('/deleteprestasiakademik/{id}',[PrestasiMahasiswaController::class, 'deleteprestasiakademik'])->name('deleteprestasiakademik');
+Route::get('/deleteprestasinonakademik/{id}',[PrestasiMahasiswaController::class, 'deleteprestasinonakademik'])->name('deleteprestasinonakademik');
 Route::get('/deletedatauser/{id}',[DataUserController::class, 'deletedatauser'])->name('deletedatauser');
 
 Route::get('/login',[LoginController::class, 'login'])->name('login');
@@ -56,11 +66,5 @@ Route::post('/registeruser',[LoginController::class, 'registeruser'])->name('reg
 
 Route::get('/logout',[LoginController::class, 'logout'])->name('logout');
 
-Route::get('/exportexcel',[DataMahasiswaController::class, 'exportexcel'])->name('exportexcel');
-Route::get('/exportexcelipk',[DataMahasiswaController::class, 'exportexcelipk'])->name('exportexcelipk');
-Route::get('/exportexcelpendapatan',[DataMahasiswaController::class, 'exportexcelpendapatan'])->name('exportexcelpendapatan');
-Route::get('/exportexcelnasional',[DataMahasiswaController::class, 'exportexcelnasional'])->name('exportexcelnasional');
-Route::get('/exportexcelinternasional',[DataMahasiswaController::class, 'exportexcelinternasional'])->name('exportexcelinternasional');
-Route::get('/exportexceltunggakan',[DataMahasiswaController::class, 'exportexceltunggakan'])->name('exportexceltunggakan');
-
 Route::post('/importexcel',[DataMahasiswaController::class, 'importexcel'])->name('importexcel');
+Route::get('/exportexcel',[DataMahasiswaController::class, 'exportexcel'])->name('exportexcel');

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Smart Dashboard</title>
-
+  <title>Sisfo Prestasi</title>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
@@ -29,16 +29,16 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      
+
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
-      
-      
-    
-      
-      
+
+
+
+
+
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -48,7 +48,7 @@
     <!-- Brand Logo -->
     <a href="/welcome" class="brand-link">
       <img src="{{ asset('template/dist/img/uniga.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Smart Dashboard</span>
+      <span class="brand-text font-weight-light">Sisfo Prestasi</span>
     </a>
 
     <!-- Sidebar -->
@@ -63,7 +63,7 @@
         </div>
       </div>
 
-    
+
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -75,17 +75,17 @@
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-               
+
               </p>
             </a>
-            
+
           </li>
             <li class="nav-item">
             <a href="/datamahasiswa" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Data Mahasiswa
-                
+
               </p>
             </a>
           </li>
@@ -93,65 +93,48 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-               Calon Beasiswa
+               Prestasi
                 <i class="fas fa-angle-left right"></i>
-                
+
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="/datamahasiswaipk" class="nav-link">
+                <a href="/prestasiakademik" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>IPK</p>
+                  <p>Akademik</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/datamahasiswapendapatan" class="nav-link">
+                <a href="/prestasinonakademik" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Penghasilan Orang Tua</p>
+                  <p>Non Akademik</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="/datamahasiswanasional" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Prestasi Nasional</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="/datamahasiswainternasional" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Prestasi Internasional</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="datamahasiswatunggakan" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tunggakan</p>
-                </a>
-              </li>
-          
-         
- 
+
         </ul>
+        @if (Auth::user()->role == 'superadmin')
         <li class="nav-item">
             <a href="/superadmindashboard" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Super Admin
-               
+
               </p>
             </a>
-            
+
           </li>
+        @endif
+
         <li class="nav-item">
             <a href="/logout" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Logout
-                
+
               </p>
             </a>
-          </li>
+        </li>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -170,9 +153,9 @@
 
   <!-- Main Footer -->
   <footer class="main-footer">
-    <strong>Copyright 2022 Fakultas Ekonomi Universitas Garut</strong>
+    <strong>Copyright 2023 Fakultas Ekonomi Universitas Garut</strong>
     All rights reserved.
-    
+
   </footer>
 </div>
 <!-- ./wrapper -->

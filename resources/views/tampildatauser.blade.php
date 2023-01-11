@@ -54,8 +54,31 @@
                                         placeholder="Masukkan Email"
                                     />
                                 </div>
-                                
-{{--                                 
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1"
+                                        >Role</label
+                                    >
+                                    <select
+                                        class="custom-select"
+                                        name="role"
+                                    >
+                                        <option selected>
+                                            {{ $data->role }}
+                                        </option>
+                                        <option value="admin">
+                                            admin
+                                        </option>
+                                        <option value="superadmin">
+                                            superadmin
+                                        </option>
+                                    </select>
+                                    @error('program_studi')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
                                         >Password</label
@@ -68,7 +91,7 @@
                                         aria-describedby="emailHelp"
                                         placeholder="Masukkan Password"
                                     />
-                                </div> --}}
+                                </div>
 
                                 <button type="submit" class="btn btn-primary">
                                     Submit

@@ -18,14 +18,8 @@ class MahasiswaImport implements ToModel
             'nim' => $row[1],
             'nama' => $row[2],
             'program_studi' => $row[3],
-            'ipk' => $row[4],
-            'pendapatan' => $row[5],
-            'daftar_prestasi' => $row[6],
-            'jumlah_prestasi_nasional' => $row[7],
-            'jumlah_prestasi_internasional' => $row[8],
-            'tunggakan' => $row[9],
-            'organisasi' => $row[10]
-            
+            'angkatan' => $row[4],
+
         ]);
     }
 }

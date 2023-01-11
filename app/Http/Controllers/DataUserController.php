@@ -7,17 +7,15 @@ use App\Models\DataUser;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\DataMahasiswa;
+use Illuminate\Support\Facades\Hash;
 
 class DataUserController extends Controller
 {
     public function superadmindashboard() {
          $dataUser = DataUser::paginate(6);
          $data = DataMahasiswa::all();
-        $avgIpk = DataMahasiswa::avg('ipk');
         $total = DataMahasiswa::count();
-        $avgTunggakan = DataMahasiswa::avg('tunggakan');
-        $avgPendapatan = DataMahasiswa::avg('pendapatan');
-        return view('superadmindashboard',compact('data','dataUser','avgIpk','avgTunggakan','avgPendapatan','total'));
+        return view('superadmindashboard',compact('data','dataUser','total'));
     }
     public function tambahdatauser() {
         return view('tambahuser');
@@ -28,12 +26,13 @@ class DataUserController extends Controller
         'name' => 'required',
         'email' => 'required',
         'password' => 'required',
+        'role' => 'required'
     ]);
         User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'role' => $request->role,
             'password' => bcrypt($request->password),
-            'remember_token' => Str::random(60),
         ]);
 
         return redirect('/superadmindashboard');
@@ -46,10 +45,20 @@ class DataUserController extends Controller
     }
 
     public function updatedatauser(Request $request, $id) {
-        $data = DataUser::find($id);
-        $data->update($request->all());
+
+        $this->validate($request, [
+        'name' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+        'role' => 'required',
+        ]);
+        $userData = $request->all();
+        $userData['password'] = Hash::make($userData['password']);
+
+        DataUser::find($id)->update($userData);
         return redirect()->route('superadmindashboard')->with('success','Data berhasil di update');
     }
+
 
     public function deletedatauser($id) {
         $data = DataUser::find($id);

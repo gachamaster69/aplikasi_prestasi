@@ -20,7 +20,7 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    
+
     <section class="content">
       <div class="container-fluid">
         <!-- Info boxes -->
@@ -33,7 +33,7 @@
                 <span class="info-box-text">Total Mahasiswa</span>
                 <span class="info-box-number">
                     {{ $total }}
-                  
+
                 </span>
               </div>
               <!-- /.info-box-content -->
@@ -46,8 +46,8 @@
               <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calculator"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Rata-rata Ipk</span>
-                <span class="info-box-number">{{ $avgIpk }}</span>
+                <span class="info-box-text">Jumlah Prestasi</span>
+                <span class="info-box-number">{{ $jumlahprestasi }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -63,8 +63,8 @@
               <span class="info-box-icon bg-success elevation-1"><i class="fas fa-file-invoice-dollar"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Rata-rata Penghasilan</span>
-                <span class="info-box-number">{{ number_format($avgPendapatan) }}</span>
+                <span class="info-box-text">Jumlah Skala Local</span>
+                <span class="info-box-number">{{ $jumlahskalalocal }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -76,8 +76,8 @@
               <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-balance-scale-left"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Rata-rata Tunggakan</span>
-                <span class="info-box-number">{{ number_format($avgTunggakan) }}</span>
+                <span class="info-box-text">Jumlah Skala Nasional</span>
+                <span class="info-box-number">{{ $jumlahskalanasional }}</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -87,13 +87,75 @@
         </div>
         <!-- /.row -->
 
-        
+
         <!-- Main row -->
-        
+
         <!-- /.row -->
       </div><!--/. container-fluid -->
     </section>
-    
+
+    <section class="content">
+        <div class="container-fluid">
+          <!-- Info boxes -->
+          <div class="row">
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="info-box">
+                <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-text">Jumlah Skala Internasional</span>
+                  <span class="info-box-number">
+                      {{ $jumlahskalainter }}
+
+                  </span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="info-box mb-3">
+                <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calculator"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-text">Jumlah Jenis Prestasi Akademik</span>
+                  <span class="info-box-number">{{ $jumlahjenisakademik }}</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+
+            <!-- fix for small devices only -->
+            <div class="clearfix hidden-md-up"></div>
+
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="info-box mb-3">
+                <span class="info-box-icon bg-success elevation-1"><i class="fas fa-file-invoice-dollar"></i></span>
+
+                <div class="info-box-content">
+                  <span class="info-box-text">Jumlah Jenis Prestasi Non Akademik</span>
+                  <span class="info-box-number">{{ $jumlahjenisnon }}</span>
+                </div>
+                <!-- /.info-box-content -->
+              </div>
+              <!-- /.info-box -->
+            </div>
+            <!-- /.col -->
+
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+
+
+          <!-- Main row -->
+
+          <!-- /.row -->
+        </div><!--/. container-fluid -->
+      </section>
+
     <!-- /.content -->
   </div>
 @endsection

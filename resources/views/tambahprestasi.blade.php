@@ -26,37 +26,21 @@
                 <div class="col-8">
                     <div class="card">
                         <div class="card-body">
-                            <form action="/insertdata" method="POST">
+                            <form action="/insertprestasi" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1">NPM</label>
-                                    <input
-                                        type="text"
-                                        name="nim"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Masukkan NPM"
-                                    />
-                                    @error('nim')
-                                    <div class="alert alert-danger">
-                                        {{ $message }}
-                                    </div>
-                                    @enderror
-                                </div>
-                                <div class="mb-3">
                                     <label for="exampleInputEmail1"
-                                        >Nama Lengkap</label
+                                        >Nama Prestasi</label
                                     >
                                     <input
                                         type="text"
-                                        name="nama"
+                                        name="prestasi"
                                         class="form-control"
                                         id="exampleInputEmail1"
                                         aria-describedby="emailHelp"
-                                        placeholder="Masukkan Nama"
+                                        placeholder="Masukkan Prestasi"
                                     />
-                                    @error('nama')
+                                    @error('prestasi')
                                     <div class="alert alert-danger">
                                         {{ $message }}
                                     </div>
@@ -64,29 +48,20 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
-                                        >Program Studi</label
+                                        >Jenis Prestasi</label
                                     >
                                     <select
                                         class="custom-select"
-                                        name="program_studi"
+                                        name="jenis_prestasi"
                                     >
                                         <option selected>
-                                            Akuntansi D3
+                                            Akademik
                                         </option>
-                                        <option value="Akuntansi S1">
-                                            Akuntansi S1
-                                        </option>
-                                        <option value="Bisnis Digital S1">
-                                            Bisnis Digital S1
-                                        </option>
-                                        <option value="Manajemen S1">
-                                            Manajemen S1
-                                        </option>
-                                        <option value="Pariwisata S1">
-                                            Pariwisata S1
+                                        <option value="Non akademik">
+                                            Non Akademik
                                         </option>
                                     </select>
-                                    @error('program_studi')
+                                    @error('jenis_prestasi')
                                     <div class="alert alert-danger">
                                         {{ $message }}
                                     </div>
@@ -94,21 +69,80 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1"
-                                        >Angkatan</label
+                                        >Skala</label
                                     >
-                                    <input
-                                        type="text"
-                                        name="angkatan"
-                                        class="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        placeholder="Masukkan Angkatan"
-                                    />
-                                    @error('angkatan')
+                                    <select
+                                        class="custom-select"
+                                        name="skala"
+                                    >
+                                        <option selected>
+                                            Local
+                                        </option>
+                                        <option value="Nasional">
+                                            Nasional
+                                        </option>
+                                        <option value="Internasional">
+                                            Internasional
+                                        </option>
+                                    </select>
+                                    @error('skala')
                                     <div class="alert alert-danger">
                                         {{ $message }}
                                     </div>
                                     @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1"
+                                        >Nama penyelenggara</label
+                                    >
+                                    <input
+                                        type="text"
+                                        name="penyelenggara"
+                                        class="form-control"
+                                        id="exampleInputEmail1"
+                                        aria-describedby="emailHelp"
+                                        placeholder="Masukkan Penyelenggara"
+                                    />
+                                    @error('penyelenggara')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1"
+                                        >Berkas</label
+                                    >
+                                    <input
+                                        type="file"
+                                        name="berkas"
+                                        class="form-control"
+                                        placeholder="Upload"
+                                    />
+                                    @error('berkas')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1"
+                                        >Tanggal</label
+                                    >
+                                    <input
+                                        type="date"
+                                        name="tanggal"
+                                        class="form-control"
+
+                                    />
+                                    @error('tanggal')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div>
+                                    <input type="hidden" value="{{$id}}" name="mahasiswa_id" />
                                 </div>
                                 <button type="submit" class="btn btn-primary">
                                     Submit

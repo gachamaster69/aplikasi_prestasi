@@ -20,71 +20,10 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    
+
     <section class="content">
       <div class="container-fluid">
         <!-- Info boxes -->
-        <div class="row">
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box">
-              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-users"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Total Mahasiswa</span>
-                <span class="info-box-number">
-                    {{ $total }}
-                  
-                </span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-calculator"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Rata-rata Ipk</span>
-                <span class="info-box-number">{{ $avgIpk }}</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-
-          <!-- fix for small devices only -->
-          <div class="clearfix hidden-md-up"></div>
-
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-file-invoice-dollar"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Rata-rata Penghasilan</span>
-                <span class="info-box-number">{{ number_format($avgPendapatan) }}</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-          <div class="col-12 col-sm-6 col-md-3">
-            <div class="info-box mb-3">
-              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-balance-scale-left"></i></span>
-
-              <div class="info-box-content">
-                <span class="info-box-text">Rata-rata Tunggakan</span>
-                <span class="info-box-number">{{ number_format($avgTunggakan) }}</span>
-              </div>
-              <!-- /.info-box-content -->
-            </div>
-            <!-- /.info-box -->
-          </div>
-          <!-- /.col -->
-        </div>
         <div class="container">
             <a
                 href="/tambahdatauser"
@@ -120,7 +59,7 @@
                         <td>{{ $row->email }}</td>
                         <td>{{ $row->role }}</td>
                       <td>{{ $row->password }}</td>
-                      
+
                         <td>{{ $row->created_at->format('D M Y') }}</td>
                         <td>
                             <a
@@ -142,18 +81,18 @@
                     </tr>
                     @endforeach
                 </tbody>
-                
+
             </table>
             {{ $dataUser->links() }}
-         
+
         </div>
-        
+
         <!-- Main row -->
-        
+
         <!-- /.row -->
       </div><!--/. container-fluid -->
     </section>
-    
+
     <!-- /.content -->
   </div>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
