@@ -31,25 +31,25 @@ Route::group(['middleware' => ['auth','hakakses:superadmin']], function(){
 Route::post('/insertdata',[DataMahasiswaController::class, 'insertdata'])->name('insertdata');
 Route::post('/insertprestasi',[PrestasiMahasiswaController::class, 'insertprestasi'])->name('insertprestasi');
 
-Route::get('/welcome',[DataMahasiswaController::class, 'welcome'])->name('welcome');
+Route::get('/welcome',[DataMahasiswaController::class, 'welcome'])->name('welcome')->middleware('auth');
 
-Route::get('/datamahasiswa',[DataMahasiswaController::class, 'datamahasiswa'])->name('datamahasiswa');
-Route::get('/dataprestasi/{id}',[PrestasiMahasiswaController::class, 'dataprestasi'])->name('dataprestasi');
+Route::get('/datamahasiswa',[DataMahasiswaController::class, 'datamahasiswa'])->name('datamahasiswa')->middleware('auth');;
+Route::get('/dataprestasi/{id}',[PrestasiMahasiswaController::class, 'dataprestasi'])->name('dataprestasi')->middleware('auth');;
 
-Route::get('/prestasiakademik',[PrestasiMahasiswaController::class, 'prestasiakademik'])->name('prestasiakademik');
-Route::get('/prestasinonakademik',[PrestasiMahasiswaController::class, 'prestasinonakademik'])->name('prestasinonakademik');
+Route::get('/prestasiakademik',[PrestasiMahasiswaController::class, 'prestasiakademik'])->name('prestasiakademik')->middleware('auth');;
+Route::get('/prestasinonakademik',[PrestasiMahasiswaController::class, 'prestasinonakademik'])->name('prestasinonakademik')->middleware('auth');;
 
-Route::get('/tambahdatamahasiswa',[DataMahasiswaController::class, 'tambahdatamahasiswa'])->name('tambahdatamahasiswa');
-Route::get('/tambahprestasi/{id}',[PrestasiMahasiswaController::class, 'tambahprestasi'])->name('tambahprestasi');
-Route::get('/tambahdatauser',[DataUserController::class, 'tambahdatauser'])->name('tambahdatauser');
+Route::get('/tambahdatamahasiswa',[DataMahasiswaController::class, 'tambahdatamahasiswa'])->name('tambahdatamahasiswa')->middleware('auth');;
+Route::get('/tambahprestasi/{id}',[PrestasiMahasiswaController::class, 'tambahprestasi'])->name('tambahprestasi')->middleware('auth');;
+Route::get('/tambahdatauser',[DataUserController::class, 'tambahdatauser'])->name('tambahdatauser')->middleware('auth');;
 
-Route::get('/tampilkandata/{id}',[DataMahasiswaController::class, 'tampilkandata'])->name('tampilkandata');
+Route::get('/tampilkandata/{id}',[DataMahasiswaController::class, 'tampilkandata'])->name('tampilkandata')->middleware('auth');;
 Route::post('/updatedata/{id}',[DataMahasiswaController::class, 'updatedata'])->name('updatedata');
 
-Route::get('/tampilkanprestasi/{id}',[PrestasiMahasiswaController::class, 'tampilkanprestasi'])->name('tampilkanprestasi');
+Route::get('/tampilkanprestasi/{id}',[PrestasiMahasiswaController::class, 'tampilkanprestasi'])->name('tampilkanprestasi')->middleware('auth');;
 Route::post('/updateprestasi/{id}',[PrestasiMahasiswaController::class, 'updateprestasi'])->name('updateprestasi');
 
-Route::get('/tampilkandatauser/{id}',[DataUserController::class, 'tampilkandatauser'])->name('tampilkandatauser');
+Route::get('/tampilkandatauser/{id}',[DataUserController::class, 'tampilkandatauser'])->name('tampilkandatauser')->middleware('auth');;
 Route::post('/updatedatauser/{id}',[DataUserController::class, 'updatedatauser'])->name('updatedatauser');
 
 Route::get('/deletedata/{id}',[DataMahasiswaController::class, 'deletedata'])->name('deletedata');
