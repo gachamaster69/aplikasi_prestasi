@@ -112,7 +112,7 @@
                                     <a href="/tampilkandata/{{ $row->id }}" class="btn btn-info mb-1">
                                         Ubah
                                     </a>
-                                    <a href="/dataprestasi/{{ $row->nim }}" class="btn btn-info mb-1">
+                                    <a href="/dataprestasi/{{ $row->nim }}" class="btn btn-warning mb-1">
                                         Prestasi
                                     </a>
                                     <a href="#" type="button" class="btn btn-danger delete mb-1"

@@ -15,12 +15,11 @@ class DataMahasiswaController extends Controller
         $data = DataMahasiswa::all();
         $total = DataMahasiswa::count();
         $jumlahprestasi = PrestasiMahasiswa::count();
-        $jumlahskalalocal = PrestasiMahasiswa::where('skala', 'Local')->count();
         $jumlahskalanasional = PrestasiMahasiswa::where('skala', 'Nasional')->count();
         $jumlahskalainter = PrestasiMahasiswa::where('skala', 'Internasional')->count();
         $jumlahjenisakademik = PrestasiMahasiswa::where('jenis_prestasi', 'Akademik')->count();
         $jumlahjenisnon = PrestasiMahasiswa::where('jenis_prestasi', 'Non Akademik')->count();
-        return view('welcome',compact('total','jumlahprestasi','jumlahskalanasional','jumlahskalalocal','jumlahskalainter','jumlahjenisakademik','jumlahjenisnon'));
+        return view('welcome',compact('total','jumlahprestasi','jumlahskalanasional','jumlahskalainter','jumlahjenisakademik','jumlahjenisnon'));
 
     }
 

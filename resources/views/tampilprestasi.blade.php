@@ -73,8 +73,14 @@
                                         <option selected>
                                             {{ $data->skala }}
                                         </option>
-                                        <option value="Local">
-                                            Local
+                                        <option value="Kecamatan">
+                                            Kecamatan
+                                        </option>
+                                        <option value="Kabupaten">
+                                            Kabupaten
+                                        </option>
+                                        <option value="Provinsi">
+                                            Provinsi
                                         </option>
                                         <option value="Nasional">
                                             Nasional

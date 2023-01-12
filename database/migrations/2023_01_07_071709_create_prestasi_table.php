@@ -17,7 +17,7 @@ class CreatePrestasiTable extends Migration
             $table->id();
             $table->integer('mahasiswa_id');
             $table->enum('jenis_prestasi',['Akademik','Non akademik']);
-            $table->enum('skala',['Local','Nasional','Internasional']);
+            $table->enum('skala',['Kecamatan','Kabupaten','Provinsi','Nasional','Internasional']);
             $table->string('tanggal');
             $table->string('penyelenggara');
             $table->string('prestasi');

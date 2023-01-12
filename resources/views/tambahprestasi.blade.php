@@ -76,7 +76,13 @@
                                         name="skala"
                                     >
                                         <option selected>
-                                            Local
+                                            Kecamatan
+                                        </option>
+                                        <option value="Kabupaten">
+                                            Kabupaten
+                                        </option>
+                                        <option value="Provinsi">
+                                            Provinsi
                                         </option>
                                         <option value="Nasional">
                                             Nasional
