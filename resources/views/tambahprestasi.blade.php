@@ -16,10 +16,10 @@
             crossorigin="anonymous"
         />
 
-        <title>Data Mahasiswa</title>
+        <title>Prestasi Mahasiswa</title>
     </head>
     <body>
-        <h2 class="text-center mb-4">Tambah Data Mahasiswa</h2>
+        <h2 class="text-center mb-4">Tambah Prestasi</h2>
 
         <div class="container">
             <div class="row justify-content-center">
@@ -76,9 +76,6 @@
                                         name="skala"
                                     >
                                         <option selected>
-                                            Kecamatan
-                                        </option>
-                                        <option value="Kabupaten">
                                             Kabupaten
                                         </option>
                                         <option value="Provinsi">
@@ -124,8 +121,74 @@
                                         name="berkas"
                                         class="form-control"
                                         placeholder="Upload"
+                                        accept=".pdf"
                                     />
                                     @error('berkas')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <input
+                                        type="file"
+                                        name="berkas2"
+                                        class="form-control mt-3"
+                                        placeholder="Upload"
+                                        accept=".pdf"
+                                    />
+                                    @error('berkas2')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <input
+                                        type="file"
+                                        name="berkas3"
+                                        class="form-control mt-3"
+                                        placeholder="Upload"
+                                        accept=".pdf"
+                                    />
+                                    @error('berkas3')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </div>
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1"
+                                        >Foto Kegiatan</label
+                                    >
+                                    <input
+                                        type="file"
+                                        name="berkas_kegiatan"
+                                        class="form-control"
+                                        placeholder="Upload"
+                                        accept="image/png, image/jpg, image/jpeg"
+                                    />
+                                    @error('berkas_kegiatan')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <input
+                                        type="file"
+                                        name="berkas_kegiatan2"
+                                        class="form-control mt-3"
+                                        placeholder="Upload"
+                                        accept="image/png, image/jpg, image/jpeg"
+                                    />
+                                    @error('berkas_kegiatan2')
+                                    <div class="alert alert-danger">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                    <input
+                                        type="file"
+                                        name="berkas_kegiatan3"
+                                        class="form-control mt-3"
+                                        placeholder="Upload"
+                                        accept="image/png, image/jpg, image/jpeg"
+                                    />
+                                    @error('berkas_kegiatan3')
                                     <div class="alert alert-danger">
                                         {{ $message }}
                                     </div>

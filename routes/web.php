@@ -17,10 +17,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
-
 Route::group(['middleware' => ['auth','hakakses:superadmin']], function(){
 
     Route::get('/superadmindashboard',[DataUserController::class, 'superadmindashboard'])->name('superadmindashboard');
@@ -33,8 +29,8 @@ Route::post('/insertprestasi',[PrestasiMahasiswaController::class, 'insertpresta
 
 Route::get('/welcome',[DataMahasiswaController::class, 'welcome'])->name('welcome')->middleware('auth');
 
-Route::get('/datamahasiswa',[DataMahasiswaController::class, 'datamahasiswa'])->name('datamahasiswa')->middleware('auth');;
-Route::get('/dataprestasi/{id}',[PrestasiMahasiswaController::class, 'dataprestasi'])->name('dataprestasi')->middleware('auth');;
+Route::get('/datamahasiswa',[DataMahasiswaController::class, 'datamahasiswa'])->name('datamahasiswa')->middleware('auth');
+Route::get('/dataprestasi/{id}',[PrestasiMahasiswaController::class, 'dataprestasi'])->name('dataprestasi')->middleware('auth');
 
 Route::get('/prestasiakademik',[PrestasiMahasiswaController::class, 'prestasiakademik'])->name('prestasiakademik')->middleware('auth');;
 Route::get('/prestasinonakademik',[PrestasiMahasiswaController::class, 'prestasinonakademik'])->name('prestasinonakademik')->middleware('auth');;
@@ -59,6 +55,7 @@ Route::get('/deleteprestasinonakademik/{id}',[PrestasiMahasiswaController::class
 Route::get('/deletedatauser/{id}',[DataUserController::class, 'deletedatauser'])->name('deletedatauser');
 
 Route::get('/login',[LoginController::class, 'login'])->name('login');
+Route::get('/',[DataMahasiswaController::class, 'landing'])->name('landing');
 Route::post('/loginuser',[LoginController::class, 'loginuser'])->name('loginuser');
 
 Route::get('/register',[LoginController::class, 'register'])->name('register');

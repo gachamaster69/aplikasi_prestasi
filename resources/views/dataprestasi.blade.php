@@ -43,6 +43,7 @@
                             <th scope="col">Tanggal</th>
                             <th scope="col">Penyelenggara</th>
                             <th scope="col">Berkas</th>
+                            <th scope="col">Kegiatan</th>
                             <th scope="col">Dibuat</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -56,7 +57,28 @@
                                 <td>{{ $row->skala }}</td>
                                 <td>{{ $row->tanggal }}</td>
                                 <td>{{ $row->penyelenggara }}</td>
-                                <td><a href="{{ asset('berkasprestasi/' . $row->berkas) }}">Lihat Berkas</a></td>
+                                <td>
+                                   1. <a href="{{ asset('berkasprestasi/' . $row->berkas) }}">Lihat Berkas</a>
+                                    @if ($row->berkas2 != null)
+                                    <br>
+                                    <a href="{{ asset('berkasprestasi2/' . $row->berkas2) }}">Lihat Berkas</a>
+                                    <br>
+                                    @endif
+                                    @if ($row->berkas2 != null)
+                                    <a href="{{ asset('berkasprestasi3/' . $row->berkas3) }}">Lihat Berkas</a>
+                                    @endif
+                                </td>
+                                <td>
+                                    <a href="{{ asset('berkaskegiatan/' . $row->berkas_kegiatan) }}">Lihat Kegiatan</a>
+                                    <br>
+                                    @if ($row->berkas_kegiatan2 != null)
+                                    <a href="{{ asset('berkaskegiatan2/' . $row->berkas_kegiatan2) }}">Lihat Kegiatan</a>
+                                    <br>
+                                    @endif
+                                    @if ($row->berkas_kegiatan3 != null)
+                                    <a href="{{ asset('berkaskegiatan3/' . $row->berkas_kegiatan3) }}">Lihat Kegiatan</a>
+                                    @endif
+                                </td>
                                 <td>{{ $row->created_at->format('D M Y') }}</td>
                                 <td>
                                     <a href="/tampilkanprestasi/{{ $row->id }}" class="btn btn-info mb-1">

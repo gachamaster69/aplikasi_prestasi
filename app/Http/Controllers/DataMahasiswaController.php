@@ -7,6 +7,7 @@ use App\Models\DataMahasiswa;
 use App\Exports\MahasiswaExport;
 use App\Imports\MahasiswaImport;
 use App\Models\PrestasiMahasiswa;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class DataMahasiswaController extends Controller
@@ -23,8 +24,25 @@ class DataMahasiswaController extends Controller
 
     }
 
-    public function datamahasiswa() {
+    public function landing() {
         $data = DataMahasiswa::all();
+        $prestasi = DB::table('prestasi')
+            ->join('data_mahasiswa', 'prestasi.mahasiswa_id', '=', 'data_mahasiswa.nim')
+            ->select('data_mahasiswa.program_studi','data_mahasiswa.nama', 'prestasi.*')
+            ->get();
+
+        $results = DB::table('prestasi as P')
+            ->join('data_mahasiswa as M', 'P.mahasiswa_id', '=', 'M.nim')
+            ->select(DB::raw("LEFT(P.tanggal, 4) as tahun, COUNT(P.id) as jumlah"))
+            ->groupBy(DB::raw("LEFT(P.tanggal, 4)"))
+            ->get();
+
+        return view('landing',compact('prestasi','data','results'));
+
+    }
+
+    public function datamahasiswa() {
+        $data = DataMahasiswa::orderBy('angkatan','desc')->orderBy('nim','asc')->get();
         return view('datamahasiswa',compact('data'));
     }
 

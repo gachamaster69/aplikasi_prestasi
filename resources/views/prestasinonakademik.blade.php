@@ -96,6 +96,7 @@
                         <th scope="col">Tanggal</th>
                         <th scope="col">Penyelenggara</th>
                         <th scope="col">Berkas</th>
+                        <th scope="col">Kegiatan</th>
                         <th scope="col">Dibuat</th>
                         <th scope="col">Aksi</th>
                     </tr>
@@ -111,6 +112,7 @@
                         <td>{{ $row->tanggal }}</td>
                         <td>{{ $row->penyelenggara }}</td>
                         <td><a href="{{ asset('berkasprestasi/'.$row->berkas) }}">Lihat Berkas</a></td>
+                        <td><a href="{{ asset('berkaskegiatan/' . $row->berkas_kegiatan) }}">Lihat Kegiatan</a></td>
                         <td>{{ $row->created_at->format('D M Y') }}</td>
                         <td>
                             {{-- <a

@@ -15,13 +15,18 @@ class CreatePrestasiTable extends Migration
     {
         Schema::create('prestasi', function (Blueprint $table) {
             $table->id();
-            $table->integer('mahasiswa_id');
+            $table->bigInteger('mahasiswa_id');
             $table->enum('jenis_prestasi',['Akademik','Non akademik']);
-            $table->enum('skala',['Kecamatan','Kabupaten','Provinsi','Nasional','Internasional']);
+            $table->enum('skala',['Kabupaten','Provinsi','Nasional','Internasional']);
             $table->string('tanggal');
             $table->string('penyelenggara');
             $table->string('prestasi');
             $table->string('berkas');
+            $table->string('berkas2')->nullable();
+            $table->string('berkas3')->nullable();
+            $table->string('berkas_kegiatan');
+            $table->string('berkas_kegiatan2')->nullable();
+            $table->string('berkas_kegiatan3')->nullable();
             $table->timestamps();
         });
     }

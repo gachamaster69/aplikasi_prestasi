@@ -16,12 +16,12 @@ class PrestasiMahasiswaController extends Controller
     }
 
     public function prestasiakademik(Request $request) {
-        $data = PrestasiMahasiswa::where('jenis_prestasi', 'Akademik')->get();
+        $data = PrestasiMahasiswa::where('jenis_prestasi', 'Akademik')->orderBy('tanggal','desc')->get();
         return view('prestasiakademik',compact('data'));
     }
 
     public function prestasinonakademik() {
-        $data = PrestasiMahasiswa::where('jenis_prestasi', 'Non Akademik')->get();
+        $data = PrestasiMahasiswa::where('jenis_prestasi', 'Non Akademik')->orderBy('tanggal','desc')->get();
         return view('prestasinonakademik',compact('data'));
     }
 
@@ -44,6 +44,31 @@ class PrestasiMahasiswaController extends Controller
             $data->berkas = $request->file('berkas')->getClientOriginalName();
             $data->save();
         }
+        if($request->hasFile('berkas2')){
+            $request->file('berkas2')->move('berkasprestasi2/', $request->file('berkas2')->getClientOriginalName());
+            $data->berkas2 = $request->file('berkas2')->getClientOriginalName();
+            $data->save();
+        }
+        if($request->hasFile('berkas3')){
+            $request->file('berkas3')->move('berkasprestasi3/', $request->file('berkas3')->getClientOriginalName());
+            $data->berkas3 = $request->file('berkas3')->getClientOriginalName();
+            $data->save();
+        }
+        if($request->hasFile('berkas_kegiatan')){
+            $request->file('berkas_kegiatan')->move('berkaskegiatan/', $request->file('berkas_kegiatan')->getClientOriginalName());
+            $data->berkas_kegiatan = $request->file('berkas_kegiatan')->getClientOriginalName();
+            $data->save();
+        }
+        if($request->hasFile('berkas_kegiatan2')){
+            $request->file('berkas_kegiatan2')->move('berkaskegiatan2/', $request->file('berkas_kegiatan2')->getClientOriginalName());
+            $data->berkas_kegiatan2 = $request->file('berkas_kegiatan2')->getClientOriginalName();
+            $data->save();
+        }
+        if($request->hasFile('berkas_kegiatan3')){
+            $request->file('berkas_kegiatan3')->move('berkaskegiatan3/', $request->file('berkas_kegiatan3')->getClientOriginalName());
+            $data->berkas_kegiatan3 = $request->file('berkas_kegiatan3')->getClientOriginalName();
+            $data->save();
+        }
         return redirect('dataprestasi/'.$data->mahasiswa_id)->with('success','Prestasi berhasil di update');
     }
 
@@ -53,13 +78,43 @@ class PrestasiMahasiswaController extends Controller
         'jenis_prestasi' => 'required',
         'skala' => 'required',
         'penyelenggara' => 'required',
-        'berkas' => 'required',
+        'berkas' => 'required|mimes:pdf',
+        'berkas2' => 'mimes:pdf',
+        'berkas3' => 'mimes:pdf',
+        'berkas_kegiatan' => 'required|mimes:jpg,png,jpeg|size:1099',
+        'berkas_kegiatan2' => 'mimes:jpg,png,jpeg',
+        'berkas_kegiatan3' => 'mimes:jpg,png,jpeg',
         'tanggal' => 'required',
     ]);
    $prestasiMhsw = PrestasiMahasiswa::create($request->all());
         if($request->hasFile('berkas')){
             $request->file('berkas')->move('berkasprestasi/', $request->file('berkas')->getClientOriginalName());
             $prestasiMhsw->berkas = $request->file('berkas')->getClientOriginalName();
+            $prestasiMhsw->save();
+        }
+        if($request->hasFile('berkas2')){
+            $request->file('berkas2')->move('berkasprestasi2/', $request->file('berkas2')->getClientOriginalName());
+            $prestasiMhsw->berkas2 = $request->file('berkas2')->getClientOriginalName();
+            $prestasiMhsw->save();
+        }
+        if($request->hasFile('berkas3')){
+            $request->file('berkas3')->move('berkasprestasi3/', $request->file('berkas3')->getClientOriginalName());
+            $prestasiMhsw->berkas3 = $request->file('berkas3')->getClientOriginalName();
+            $prestasiMhsw->save();
+        }
+        if($request->hasFile('berkas_kegiatan')){
+            $request->file('berkas_kegiatan')->move('berkaskegiatan/', $request->file('berkas_kegiatan')->getClientOriginalName());
+            $prestasiMhsw->berkas_kegiatan = $request->file('berkas_kegiatan')->getClientOriginalName();
+            $prestasiMhsw->save();
+        }
+        if($request->hasFile('berkas_kegiatan2')){
+            $request->file('berkas_kegiatan2')->move('berkaskegiatan2/', $request->file('berkas_kegiatan2')->getClientOriginalName());
+            $prestasiMhsw->berkas_kegiatan2 = $request->file('berkas_kegiatan2')->getClientOriginalName();
+            $prestasiMhsw->save();
+        }
+        if($request->hasFile('berkas_kegiatan3')){
+            $request->file('berkas_kegiatan3')->move('berkaskegiatan3/', $request->file('berkas_kegiatan3')->getClientOriginalName());
+            $prestasiMhsw->berkas_kegiatan3 = $request->file('berkas_kegiatan3')->getClientOriginalName();
             $prestasiMhsw->save();
         }
         return redirect('dataprestasi/'.$request->input('mahasiswa_id'))->with('success','Prestasi berhasil di tambahkan');
